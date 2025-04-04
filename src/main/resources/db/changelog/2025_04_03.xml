@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="Create table genre_book" author="P.Lidia">
+           <sql>
+               Create table if not exists genre_book (
+               genre_id bigint NOT NULL,
+               book_id bigint NOT NULL,
+               FOREIGN KEY  (genre_id) REFERENCES genre (id),
+               FOREIGN KEY (book_id) REFERENCES book (id)
+               );
+
+               Insert into genre_book(genre_id, book_id)
+               SELECT genre_id, id
+               FROM book;
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

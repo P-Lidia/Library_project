@@ -1,0 +1,23 @@
+package ru.itgirl.libraryProject.model.dto;
+
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import ru.itgirl.libraryProject.model.entity.Book;
+
+import java.util.List;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class GenreDto {
+    private Long id;
+    private String name;
+    private List<BookDto> books;
+}
+
