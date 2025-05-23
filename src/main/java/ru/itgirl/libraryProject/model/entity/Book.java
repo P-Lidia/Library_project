@@ -17,6 +17,7 @@ public class Book {
     private Long id;
 
     @Column(nullable = false)
+    @Setter
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
